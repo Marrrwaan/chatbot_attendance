@@ -1,0 +1,30 @@
+! version= 2.0
+> begin
++ request
+* <get met> == undefined => <set met=true>{topic=welcome}{ok}
+- {ok}
+< begin
+
+>  topic welcome
++ *
+- Hi Do you want to take attendance? {topic=attend}
+< topic
+
+> topic attend
++ yes [*]
+- Okay let me know your username {topic=username}
++ no
+- No problem can you go out
+< topic
+
+> topic username
++ *
+- <set username=<star>> okay, now <star> give me your I.D. {topic=id}
+< topic
+
+
+> topic id
++ *
+- thank you, you've attended.
+< topic
+
